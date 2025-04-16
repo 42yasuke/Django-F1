@@ -20,5 +20,12 @@ class Band(models.Model):
 	def __str__(self):
 		return self.name
 
+class Listing(models.Model):
+	title = models.fields.CharField(max_length=100)
+	band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
+
+	def __str__(self):
+		return self.title
+
 class Movie(models.Model):
 	title = models.fields.CharField(max_length=100)
